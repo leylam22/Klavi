@@ -1,0 +1,711 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Filter Start -->
+<section>
+    <div class="filter">
+        <div class="colorr"></div>
+        <div class="color">
+            <h1>Search your Favorite Course here</h1>
+            <h4>TOP NOTCH COURSES FROM TRAINED PROFESSIONALS</h4>
+            <div class="dropdown-fltr">
+                <input type="text" name="Keywords" placeholder="Keywords">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Instructor
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="submit" type="submit" id="filterCourses">Search Courses</button>
+        </div>
+    </div>
+</section>
+<!-- Filter End -->
+<!-- ========Wrapper Start======== -->
+<section>
+    <div class="wrapper">
+        <div class="subjects">
+            <i class="zmdi zmdi-book"></i>
+            <div>
+                <span class="number">1300</span>
+                <span class="txt">Wide Choice of Subjects</span>
+            </div>
+        </div>
+        <div class="puzzle">
+            <i class="zmdi zmdi-puzzle-piece"></i>
+            <div>
+                <span class="number">1276</span>
+                <span class="txt">Thats a lot</span>
+            </div>
+        </div>
+        <div class="cup">
+            <i class="zmdi zmdi-coffee"></i>
+            <div>
+                <span class="number">156</span>
+                <span class="txt">All Trained professionals</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========Wrapper End======== -->
+<!-- ========Process Start========= -->
+<section>
+    <div class="process">
+        <div class="pr-col">
+            <div class="pr-col-1">
+                <img src="~/assets/image/process-1.png" alt="">
+                <div class="number">1</div>
+                <h4>Expand Knowledge</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, conse ctetur
+                    adipiscing elit. Donec quis ipsum nunc
+                    suscipit lacinia vehicula.
+                </p>
+            </div>
+        </div>
+        <div class="pr-col">
+            <div class="pr-col-1">
+                <img src="~/assets/image/process-2.png" alt="">
+                <div class="number">2</div>
+                <h4>Develop Your Skill</h4>
+                <p>
+                    Nam efficitur tincidunt blandit.
+                    Pellentesque dignissim ultricies tellus,
+                    sit amet vehicula elit tempor at.
+                </p>
+            </div>
+        </div>
+        <div class="pr-col">
+            <div class="pr-col-1">
+                <img src="~/assets/image/process-3.png" alt="">
+                <div class="number">3</div>
+                <h4>Invest Time</h4>
+                <p>
+                    Mauris vel porta dui, id maximus eros.
+                    Proin nec tedct euismod tellus, a gravida
+                    ipsum eget quam finibus tet facilisis
+                </p>
+            </div>
+        </div>
+        <div class="pr-col">
+            <div class="pr-col-1">
+                <img src="~/assets/image/process-4.png" alt="">
+                <div class="number">4</div>
+                <h4>Learn Yourself</h4>
+                <p>
+                    Proin aliquet, metus fringilla mattis dignissim,
+                    nulla dolor scelerisque purus, et egestas odio
+                    massa sit amet urna.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========Process End========= -->
+<!-- =========Classes Start======== -->
+<section>
+    <div class="card-container">
+        <div class="header-class">
+            <div class="hdr">
+                <div class="line-left"></div>
+                <h1>Featured <strong>Classes</strong> </h1>
+                <div class="line-right"></div>
+            </div>
+            <h6>ONLY THE GREATEST MIND’S</h6>
+        </div>
+        <div class="card-deck">
+            @foreach (var course in Model.Courses)
+            {
+                <div class="card">
+                    <div class="img">
+                        <a href="./courseDetail.html">
+                            <img class="card-img-top" src="@course.ImagePath" alt="Card image cap">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@course.Title</h5>
+                        <div class="stars">
+                            <i class="fa-solid fa-star" style="color: #ffea00;"></i>
+                            <i class="fa-solid fa-star" style="color: #ffea00;"></i>
+                            <i class="fa-solid fa-star" style="color: #ffea00;"></i>
+                            <i class="fa-solid fa-star" style="color: #ffea00;"></i>
+                            <i class="fa-solid fa-star-half-stroke" style="color: #ffea00;"></i>
+                            <!-- <i class="fa-regular fa-star" style="color: #ffea00;"></i>    empty star -->
+                            4.5 <span>(2 rewiews)</span>
+                        </div>
+                        <div class="classlist-description">
+                            <ul>
+                                <li>@course.Description</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="left">
+                            $<span>@course.Price</span>
+                        </div>
+                        <div class="right">
+                            <a href="#">
+                                <span>View Details</span> <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- =========Classes End======== -->
+<!-- =======Course Category Start======== -->
+<section>
+    <div class="category-container">
+        <div class="category-hdr">
+            <div class="hdr">
+                <div class="line-left"></div>
+                <h1>Course <strong>Category</strong> </h1>
+                <div class="line-right"></div>
+            </div>
+            <h6>JUST PICK WHAT YOU NEED TO LEARN</h6>
+        </div>
+        <div class="img-grid">
+            <div class="category">
+                <img src="~/assets/image/architecht.jpg" alt="">
+                <h3>
+                    <a href="#">Architecture</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/education.jpg" alt="">
+                <h3>
+                    <a href="#">Education</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/engineering.jpg" alt="">
+                <h3>
+                    <a href="#">Engineering</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/geo.jpg" alt="">
+                <h3>
+                    <a href="#">Geography</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/law.jpg" alt="">
+                <h3>
+                    <a href="#">Low</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/medical.jpg" alt="">
+                <h3>
+                    <a href="#">Medical</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/quantom.jpg" alt="">
+                <h3>
+                    <a href="#">Quantum Physics</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/science.jpg" alt="">
+                <h3>
+                    <a href="#">Science</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+            <div class="category">
+                <img src="~/assets/image/share.jpg" alt="">
+                <h3>
+                    <a href="#">Share Market</a>
+                    <div class="line"></div>
+                </h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =======Course Category End======== -->
+<!-- =======Caption Start====== -->
+<section>
+    <div class="caption-container">
+        <div class="caption">
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/image-caption-1-2.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h3>
+                        Course <span>Mela</span>
+                    </h3>
+                    <p>Access the Award Winning Courses</p>
+                    <a href="#">
+                        <button>
+                            Join Kalvi  <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/image-caption-2-1.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h3>
+                        Course <span>Mela</span>
+                    </h3>
+                    <p>Access the Award Winning Courses</p>
+                    <a href="#">
+                        <button>
+                            Join Kalvi  <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =======Caption End====== -->
+<!-- =======Teachers Start======= -->
+<section>
+    <div class="teacher-container">
+        <div class="teacher-hdr">
+            <div class="hdr">
+                <div class="line-left"></div>
+                <h1>Your Best <strong>Teachers</strong> </h1>
+                <div class="line-right"></div>
+            </div>
+            <h6>IGNITE YOUR VISION WITH US</h6>
+        </div>
+        <div class="teacher-grid">
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Penny-Hopkins.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html"> Penny Hopkins</a>
+                    </h4>
+                    <h5>Human Resorces</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Richard-Smith.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html">Richard Smith</a>
+                    </h4>
+                    <h5>Dancer & Instructor</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Marguerite-Wash.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html">Marguerite Wash</a>
+                    </h4>
+                    <h5>Computer Science</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Sylvia-Hall.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html">Sylvia Hall</a>
+                    </h4>
+                    <h5>Macro Economics</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Picabo-Street.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html">Picabo Street</a>
+                    </h4>
+                    <h5>Business</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="left">
+                    <img src="~/assets/image/Ram-M.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html"> Ram M</a>
+                    </h4>
+                    <h5>Web Developer</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#">
+            <button>
+                View All Authors  <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
+            </button>
+        </a>
+    </div>
+</section>
+<!-- =======Teachers End======= -->
+<!-- =======Information Start======= -->
+<section>
+    <div class="info-container">
+        <div class="top">
+            <div class="color"></div>
+            <div class="content">
+                <div class="hdr">
+                    <h2>Why EduPlanet?</h2>
+                    <h6>NO HASSLES... JUST LEARN NOW & BECOME A PRO. WHY THE WAIT?</h6>
+                </div>
+                <div class="icons">
+                    <div class="col">
+                        <button class="a" id="icon-first">
+                            <div id="icon-color-1">
+                                <img src="~/assets/image/icon-box2-3.png" alt="">
+                            </div>
+                            Want to Learn?
+                            <!-- <div class="pointer" id="pointer-first"></div> -->
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="a" id="icon-second">
+                            <div id="icon-color-2">
+                                <img src="~/assets/image/icon-box2-2.png" alt="">
+                            </div>
+                            Benefits of EduPlanet
+                            <!-- <div class="pointer" id="pointer-second"></div> -->
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="a" id="icon-third">
+                            <div id="icon-color-3">
+                                <img src="~/assets/image/icon-box2-3.png" alt="">
+                            </div>
+                            Create a Lesson
+                            <!-- <div class="pointer" id="pointer-third"></div> -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+        </div>
+    </div>
+    <div class="info-content" id="first">
+        <div class="content-container">
+            <div class="col first">
+                <h4>Education is more fun with <strong>EduKalvi</strong> </h4>
+                <p>Lorem ipsum dolor amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                <a href="#"> Read More <i class="fa-solid fa-chevron-right" style="color: #000000;"></i> </a>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-8.png" alt="">
+                    <h4>
+                        Varied
+                        <strong>Syllabus</strong>
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet nullam id
+                        arcu tortor. Sed eget sit ame egestas,
+                        cursus felis quis, vestibulum.
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-7.png" alt="">
+                    <h4>
+                        Comprehensive
+                        <strong>Study</strong>
+                    </h4>
+                    <p>
+                        Nam efficitur tincidunt elit blandit.
+                        Pellente sqtfrue dign issim vehicula ultricies tellus,
+                        amet tempor at
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-6.png" alt="">
+                    <h4>
+                        Best
+                        <strong>Outcome</strong>
+                    </h4>
+                    <p>
+                        Sed euismodnon aliquet placerat,
+                        lectusmi molestie diam a, tempoerat metus.
+                        Mauris veldui maxim eros.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-content" id="second">
+        <div class="content-container">
+            <div class="col first">
+                <h4>Education is more fun with <strong>EduKalvi</strong> </h4>
+                <p>Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultric.</p>
+                <a href="#"> Read test <i class="fa-solid fa-chevron-right" style="color: #000000;"></i> </a>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-5.png" alt="">
+                    <h4>
+                        Relevant
+                        <strong>Courses</strong>
+                    </h4>
+                    <p>
+                        Sed euismodnon aliquet placerat,
+                        lectusmi molestie diam a, tempoerat metus.
+                        Mauris veldui maxim eros.
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-4.png" alt="">
+                    <h4>
+                        Land a
+                        <strong>new job!</strong>
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet nullam id arcu tortor.
+                        Sed eget sit ame egestas, cursus felis quis, vestibulum.
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-3.png" alt="">
+                    <h4>
+                        Updated
+                        <strong>Syllabus</strong>
+                    </h4>
+                    <p>
+                        Nam efficitur tincidunt elit blandit.
+                        Pellente sqtfrue dign issim vehicula ultricies tellus,
+                        amet tempor at.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-content" id="third">
+        <div class="content-container">
+            <div class="col first">
+                <h4>Education is more fun with <strong>EduKalvi</strong> </h4>
+                <p>Vivamus mattis nibh non orci sollicitudin, eu semper leo laoreet. Sed non velit vitaes.</p>
+                <a href="#"> Read More <i class="fa-solid fa-chevron-right" style="color: #000000;"></i> </a>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-2.png" alt="">
+                    <h4>
+                        Land a
+                        <strong>new job!</strong>
+                    </h4>
+                    <p>
+                        Nam efficitur tincidunt elit blandit.
+                        Pellente sqtfrue dign issim vehicula ultricies tellus,
+                        amet tempor at.
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-7.png" alt="">
+                    <h4>
+                        Updated
+                        <strong>Syllabus</strong>
+                    </h4>
+                    <p>
+                        Sed euismodnon aliquet placerat,
+                        lectusmi molestie diam a, tempoerat metus.
+                        Mauris veldui maxim eros.
+                    </p>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="col">
+                    <img src="~/assets/image/icon-box1-1.png" alt="">
+                    <h4>
+                        Relevant
+                        <strong>Courses</strong>
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet nullam id arcu tortor.
+                        Sed eget sit ame egestas, cursus felis quis, vestibulum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =======Information End======= -->
+<!-- ======Map Start===== -->
+<section>
+    <div class="map-container">
+        <div class="img-div">
+            <img class="thumbnail" src="~/assets/image/map-bg.png" alt="">
+        </div>
+        <div class="map-card-container">
+            <div class="map-card">
+                <div class="left">
+                    <img src="~/assets/image/icon-map-1.png" alt="">
+                </div>
+                <div class="right">
+                    <h4>Choose your Subject</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                    </p>
+                </div>
+            </div>
+            <div class="map-card">
+                <div class="left">
+                    <img src="~/assets/image/icon-map-2.png" alt="">
+                </div>
+                <div class="right">
+                    <h4>Search for your Course</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                    </p>
+                </div>
+            </div>
+            <div class="map-card">
+                <div class="left">
+                    <img src="~/assets/image/icon-map3.png" alt="">
+                </div>
+                <div class="right">
+                    <h4>Enroll in your Course</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======Map End===== -->
+<!-- End Part -->
+<section>
+    <div class="end-container">
+        <div class="end">
+            <h6>ONLY THE GREATEST MIND’S</h6>
+            <h4>Kalvi Provides the best Platform for your Education</h4>
+            <h3>Get the Most of it Now.</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                <br>
+                incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div class="links">
+                <a href="#">
+                    <i class="menu-item-icon fas fa-caret-right"></i> <span>Learn</span>
+                </a>
+                <a href="#">
+                    <i class="menu-item-icon fas fa-caret-right"></i> <span>Teach</span>
+                </a>
+                <a href="#">
+                    <i class="menu-item-icon fas fa-caret-right"></i> <span>Experiment</span>
+                </a>
+                <a href="#">
+                    <i class="menu-item-icon fas fa-caret-right"></i> <span>Win</span>
+                </a>
+                <a href="#">
+                    <i class="menu-item-icon fas fa-caret-right"></i> <span>Achieve</span>
+                </a>
+            </div>
+            <div class="buttons">
+                <button>
+                    <a href="#">
+                        <span>Get Free Trial</span> <i class="fa-solid fa-right-long" style="color: #000000;"></i>
+                    </a>
+                </button>
+                <button class="join">
+                    <a href="#">
+                        <span>Join  Now</span> <i class="fa-solid fa-right-long" style="color: #000000;"></i>
+                    </a>
+                </button>
+                <button>
+                    <a href="#">
+                        <span>View Pricing</span> <i class="fa-solid fa-right-long" style="color: #000000;"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Part -->
+

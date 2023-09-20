@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalvi International</title>
+    <link rel="shortcut icon" href="~/assets/image/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/assets/css/index.css">
+    <link rel="stylesheet" href="~/assets/css/about.css">
+    <link rel="stylesheet" href="~/assets/css/blog.css">
+    <link rel="stylesheet" href="~/assets/css/blogDetail.css">
+    <link rel="stylesheet" href="~/assets/css/cart.css">
+    <link rel="stylesheet" href="~/assets/css/contact.css">
+    <link rel="stylesheet" href="~/assets/css/courseDetail.css">
+    <link rel="stylesheet" href="~/assets/css/courses.css">
+    <link rel="stylesheet" href="~/assets/css/login.css">
+    <link rel="stylesheet" href="~/assets/css/singleTeacher.css">
+    <link rel="stylesheet" href="~/assets/css/singup.css">
+    <link rel="stylesheet" href="~/assets/css/teachers.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- =========Header Start========= -->
+    <header>
+        <div class="first-hdr">
+            <div class="hdr-left">
+                <i class="fa-solid fa-unlock fa-lg" style="color: #ffffff;"></i>
+                <a href="./login.html" style="color: #ffffff; text-decoration: none;">Login</a>
+            </div>
+            <div class="hdr-right">
+                <i class="fa-brands fa-facebook-f fa-lg" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-google-plus-g fa-lg" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-pinterest fa-lg" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-x-twitter fa-lg" style="color: #ffffff;"></i>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="mn-left">
+                <a href="./index.html">
+                    <img src="~/assets/image/logo.png" alt="">
+                </a>
+            </div>
+            <div class="mn-right">
+                <a href="./index.html">
+                    <span>Home</span>
+                </a>
+                <a href="./blog.html">
+                    <span>Blog</span>
+                </a>
+                <a href="./aboute.html">
+                    <span>About</span>
+                </a>
+                <a href="./courses.html">
+                    <span>Courses</span>
+                </a>
+                <a href="./teachers.html">
+                    <span>Teachers</span>
+                </a>
+                <a href="./contact.html">
+                    <span>Contact</span>
+                </a>
+                <a href="./cart.html" class="cart">
+                    <i class="fa-solid fa-basket-shopping fa-lg" style="color: #000000;"></i>
+                    <span class="badge badge-pill badge-warning">0</span>
+                </a>
+            </div>
+            <div class="sidebar">
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="fa-solid fa-bars fa-lg" style="color: #000000;"></i> Menu
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul>
+                            <li>
+                                <a href="./index.html">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./blog.html">
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./aboute.html">
+                                    <span>About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./courses.html">
+                                    <span>Course</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./teachers.html">
+                                    <span>Teachers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./contact.html">
+                                    <span>Contact</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./cart.html" class="cart">
+                                    <i class="fa-solid fa-basket-shopping fa-lg" style="color: #000000;"></i>
+                                    <span class="badge badge-pill badge-warning">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- =========Header End========= -->
+    <!-- =========Body Start========= -->
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- =========Body End========= -->
+    <!-- =========Footer Start========= -->
+    <footer>
+        <div class="footer-container">
+            <div class="ftr-first ftr">
+                <img src="~/assets/image/logo.png" alt=""> <br><br><br>
+                <p>
+                    Kalvi is Education which is the passport to the future,
+                    for tomorrow belongs to those who prepare for it today.
+                    Because the future of the world is in my classroom today!
+                </p>
+                <div class="info-container">
+                    <div class="info">
+                        <i class="fa-solid fa-location-dot" style="color: #7c7d7e;"></i>
+                        <span>123, New Design Street, Melbourne - Australia</span>
+                    </div>
+                    <div class="dotted"></div>
+                    <div class="info">
+                        <i class="fa-solid fa-envelope" style="color: #89898b;"></i>
+                        <span>info@eduplanet.com</span>
+                    </div>
+                    <div class="dotted"></div>
+                    <div class="info">
+                        <i class="fa-solid fa-phone" style="color: #818283;"></i>
+                        <span>(091)-9842610400064</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ftr-second ftr">
+                <!-- alt 9 for hole -->
+                <div class="ft-ln">
+                    <h3>Categories</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="ftr-link">
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                            <li>
+                                <a href="./index.html">○ Medicine</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ftr-third ftr">
+                <div class="ft-ln">
+                    <h3>Useful Links</h3>
+                    <div class="line"></div>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">○ Medicine</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="last-footer">
+            <div class="ft-icon">
+                <i class="fa-brands fa-facebook-f fa-lg" style="color: #7d7d7d;"></i>
+                <i class="fa-brands fa-google-plus-g fa-lg" style="color: #7d7d7d;"></i>
+                <i class="fa-brands fa-pinterest fa-lg" style="color: #7d7d7d;"></i>
+                <i class="fa-brands fa-x-twitter fa-lg" style="color: #7d7d7d;"></i>
+            </div>
+            <div>
+                © 2018 All Rights Reserved. Kalvi by Design Themes
+            </div>
+        </div>
+    </footer>
+    <!-- =========Footer End========= -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/index.js"></script>
+</body>
+<script src="~/assets/js/cart.js"></script>
+<script src="~/assets/js/courseDetail.js"></script>
+<script src="~/assets/js/courses.js"></script>
+<script src="~/assets/js/teachers.js"></script>
+<script src="https://kit.fontawesome.com/003639eeb9.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</html>
