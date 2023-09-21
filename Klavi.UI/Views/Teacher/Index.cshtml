@@ -1,0 +1,107 @@
+﻿@model TeacherVm
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Our Instructors</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Our Instructors</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+
+<!-- =======Teachers Start======= -->
+<section>
+    <div class="teacher-containerr">
+        <div class="teacher-grid">
+            
+            @foreach (var teacher in Model.Teachers)
+            {
+                <div class="col">
+                <div class="left">
+                    <img src="@teacher.ImagePath" alt="">
+                </div>
+                <div class="right">
+                    <h4>
+                        <a href="./singleTeacher.html">@teacher.FullName</a>
+                    </h4>
+                    <h5>@teacher.Position</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- =======Teachers End======= -->
+
+<!-- ======Testimonials Start===== -->
+<section>
+    <div class="testimonials-container">
+        <div class="hdr">
+            <div class="line"></div>
+            <div class="txt"><h1>Testimonials</h1></div>
+            <div class="line"></div>
+        </div>
+        <div class="swiper mySwiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div>
+                        <p>
+                            Ptent taciti sociosqu ad litora torquent per we conubia nostra,
+                            per inceptos.Class aptent taciti sociosqu adClass aptent taciti
+                            sociosqu ad litora torquent per conubia.Best Class aptent taciti
+                            sociosqu adClass aptent taciti sociosqu ad litora torquent per we
+                            conubia nostra
+                        </p>
+                    </div>
+                    <div>
+                        <div class="img">
+                            <div class="bg"></div>
+                            <img src="./image/testimonial3.jpg" alt="">
+                            <div class="bg"></div>
+                        </div>
+                        <b>Alen Spicer</b> <span>- Marketing</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div>
+                        <p>
+                            AdClass aptent taciti sociosqu ad litora torquent per conubia.
+                            Best Class aptent taciti sociosqu adClass aptent taciti sociosqu
+                            ad litora torquent per we conubia nostra, per inceptos.Class
+                            aptent taciti sociosqu adClass aptent taciti sociosqu
+                        </p>
+                    </div>
+                    <div>
+                        <div class="img">
+                            <div class="bg"></div>
+                            <img src="./image/testimonial8.jpg" alt="">
+                            <div class="bg"></div>
+                        </div>
+                        <b>Alen Spicer</b> <span>- Marketing</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>
+<!-- ======Testimonials End======= -->
+
