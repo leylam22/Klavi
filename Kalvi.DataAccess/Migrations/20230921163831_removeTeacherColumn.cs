@@ -4,7 +4,7 @@
 
 namespace Kalvi.DataAccess.Migrations
 {
-    public partial class AddedCourseTable : Migration
+    public partial class removeTeacherColumn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

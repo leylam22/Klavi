@@ -1,5 +1,6 @@
 ﻿using Kalvi.Core.Interface;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Kalvi.Core.Entities;
 
@@ -15,13 +16,10 @@ public class Course : IEntity
     [Required, MaxLength(255)]
     public string ImagePath { get; set; } = null!;
     public int Price { get; set; }
-
-    //public int CourseCatagoryId { get; set; }
-    //public CourseCategory? CourseCategory { get; set; }
-    //public int CourseDetailId { get; set; }
-    //public CourseDetail? CourseDetail { get; set; }
-    //public int TeacherId { get; set; }
-    //public Teacher? Teacher { get; set; }
-    public int ClassTypeId { get; set; }
-    public ClassType? ClassType { get; set; }
+    [Required, MaxLength(30)]
+    public string Type { get; set; } = null!;
+    public int CourseCatagoryId { get; set; }
+    public CourseCategory? CourseCategory { get; set; }
+    public int CourseDetailId { get; set; }
+    public CourseDetail CourseDetail { get; set; }
 }

@@ -184,69 +184,16 @@
             <h6>JUST PICK WHAT YOU NEED TO LEARN</h6>
         </div>
         <div class="img-grid">
-            <div class="category">
-                <img src="~/assets/image/architecht.jpg" alt="">
-                <h3>
-                    <a href="#">Architecture</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/education.jpg" alt="">
-                <h3>
-                    <a href="#">Education</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/engineering.jpg" alt="">
-                <h3>
-                    <a href="#">Engineering</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/geo.jpg" alt="">
-                <h3>
-                    <a href="#">Geography</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/law.jpg" alt="">
-                <h3>
-                    <a href="#">Low</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/medical.jpg" alt="">
-                <h3>
-                    <a href="#">Medical</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/quantom.jpg" alt="">
-                <h3>
-                    <a href="#">Quantum Physics</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/science.jpg" alt="">
-                <h3>
-                    <a href="#">Science</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
-            <div class="category">
-                <img src="~/assets/image/share.jpg" alt="">
-                <h3>
-                    <a href="#">Share Market</a>
-                    <div class="line"></div>
-                </h3>
-            </div>
+            @foreach (var category in Model.CourseCategories)
+            {
+                <div class="category">
+                    <img src="@category.ImagePath" alt="">
+                    <h3>
+                        <a href="#">@category.Catagory</a>
+                        <div class="line"></div>
+                    </h3>
+                </div>
+            }
         </div>
     </div>
 </section>
@@ -303,108 +250,26 @@
             <h6>IGNITE YOUR VISION WITH US</h6>
         </div>
         <div class="teacher-grid">
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Penny-Hopkins.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html"> Penny Hopkins</a>
-                    </h4>
-                    <h5>Human Resorces</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+            @foreach (var teacher in Model.Teachers)
+            {
+                <div class="col">
+                    <div class="left">
+                        <img src="@teacher.ImagePath" alt="">
+                    </div>
+                    <div class="right">
+                        <h4>
+                            <a href="./singleTeacher.html"> @teacher.FullName</a>
+                        </h4>
+                        <h5>@teacher.Position</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
+                            <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Richard-Smith.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html">Richard Smith</a>
-                    </h4>
-                    <h5>Dancer & Instructor</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Marguerite-Wash.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html">Marguerite Wash</a>
-                    </h4>
-                    <h5>Computer Science</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Sylvia-Hall.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html">Sylvia Hall</a>
-                    </h4>
-                    <h5>Macro Economics</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Picabo-Street.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html">Picabo Street</a>
-                    </h4>
-                    <h5>Business</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="left">
-                    <img src="~/assets/image/Ram-M.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h4>
-                        <a href="./singleTeacher.html"> Ram M</a>
-                    </h4>
-                    <h5>Web Developer</h5>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-square-instagram fa-xl" style="color: #ff0084;"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <a href="#">
             <button>

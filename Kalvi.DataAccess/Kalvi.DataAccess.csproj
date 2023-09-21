@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Kalvi.Core\Kalvi.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

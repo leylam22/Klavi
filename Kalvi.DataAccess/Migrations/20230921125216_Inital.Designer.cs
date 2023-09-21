@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kalvi.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230920211135_FixCourseTable")]
-    partial class FixCourseTable
+    [Migration("20230921125216_Inital")]
+    partial class Inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,24 +56,6 @@ namespace Kalvi.DataAccess.Migrations
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("Kalvi.Core.Entities.ClassType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ClassTypes");
-                });
-
             modelBuilder.Entity("Kalvi.Core.Entities.Course", b =>
                 {
                     b.Property<int>("Id")
@@ -82,7 +64,10 @@ namespace Kalvi.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ClassTypeId")
+                    b.Property<int>("CourseCatagoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -103,22 +88,53 @@ namespace Kalvi.DataAccess.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassTypeId");
+                    b.HasIndex("CourseCategoryId");
 
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("Kalvi.Core.Entities.CourseCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Catagory")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CourseCategories");
+                });
+
             modelBuilder.Entity("Kalvi.Core.Entities.Course", b =>
                 {
-                    b.HasOne("Kalvi.Core.Entities.ClassType", "ClassType")
-                        .WithMany()
-                        .HasForeignKey("ClassTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Kalvi.Core.Entities.CourseCategory", "CourseCategory")
+                        .WithMany("Courses")
+                        .HasForeignKey("CourseCategoryId");
 
-                    b.Navigation("ClassType");
+                    b.Navigation("CourseCategory");
+                });
+
+            modelBuilder.Entity("Kalvi.Core.Entities.CourseCategory", b =>
+                {
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }
