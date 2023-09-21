@@ -1,0 +1,67 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Blog</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Blog</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+<section>
+    <div class="blogg-container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            @foreach (var blog in Model.Blogs)
+            {
+                <div class="col">
+                    <div class="card">
+                        <img src="@blog.ImagePath" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="meta">
+                                <div class="date">Posted on @blog.Date.ToString("M"), @blog.Date.Year</div>
+                                <div class="comments">
+                                    /
+                                    <a href="#">
+                                        <i class="fa-regular fa-comments" style="color: #828282;"></i>
+                                        2
+                                    </a>
+                                </div>
+                                <div class="author">
+                                    /
+                                    <i class="fa-regular fa-circle-user" style="color: #878787;"></i>
+                                    <a href="./singleTeacher.html">@blog.Blogger</a>
+                                </div>
+                            </div>
+                            <h5 class="card-title">
+                                <a asp-action="Detail" asp-route-id="@blog.Id">
+                                    @blog.Title
+                                </a>
+                            </h5>
+                            <p class="card-text">
+                                @blog.Description
+                            </p>
+                            <div class="meta-data">
+                                <p class="tags">
+                                    <i class="fa-solid fa-ticket-simple" style="color: #878787;"></i>
+                                    <a href="#">Cloud Computing</a>
+                                </p>
+                                <p class="category">
+                                    <i class="fa-solid fa-network-wired" style="color: #878787;"></i>
+                                    <a href="#">lifestyle</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

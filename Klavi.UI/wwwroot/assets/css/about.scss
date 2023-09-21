@@ -242,7 +242,7 @@
     main{
         width: 100%;
         .breadcrumb{
-            background-image: url(/image/breadcrumb.png);
+            background-image: url(../../assets/image/breadcrumb.png);
             background-size: contain;
             background-repeat: repeat;
             background-attachment: fixed;
@@ -361,7 +361,7 @@
             }
 
             .help{
-                background: url(/image/tab-bg-image.jpg);
+                background: url(../../assets/image/tab-bg-image.jpg);
                 background-repeat: no-repeat;
                 background-position-x: center;
                 background-size: cover;

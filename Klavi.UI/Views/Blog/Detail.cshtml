@@ -1,0 +1,134 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Blog Name</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Blog</span>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span style="color: #fff; text-transform: uppercase;">Blog Name</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+@foreach(var blog in Model.Blogs)
+{
+    if (blog.Id == ViewBag.BlogId)
+    {
+        <section>
+            <div class="container-blog-detail">
+                <div class="img">
+                    <img src="@blog.ImagePath" alt="">
+                </div>
+                <div class="entry-details">
+                    <div class="entry-meta">
+                        <p class="category">
+                            <a href="#">Management</a>
+                        </p>
+                        <div class="entry-title">
+                            <h4>
+                                @blog.Date.ToString("M"), @blog.Date.Year
+                            </h4>
+                        </div>
+                        <div class="entry-info">
+                            <div class="author if">
+                                <i class="fa-regular fa-user" style="color: #ffffff;"></i>
+                                <a href="./singleTeacher.html">@blog.Blogger</a>
+                            </div>
+                            <div class="date if">
+                                <i class="fa-solid fa-calendar-day" style="color: #ffffff;"></i>
+                                @blog.Date
+                            </div>
+                            <div class="comments if">
+                                <i class="fa-solid fa-lock" style="color: #ffffff;"></i>
+                                0 comments
+                            </div>
+                            <div class="views if">
+                                <i class="fa-solid fa-eye" style="color: #ffffff;"></i>
+                                383 Views
+                            </div>
+                            <div class="likes if">
+                                <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
+                                <a href="#">
+                                    0 Likes
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="entry-body">
+                        <!-- Burda text editor olacaq -->
+                        @blog.BlogInfo
+                    </div>
+                    <div class="entyr-meta-data">
+                        <div class="tags">
+                            <span>Tag List</span>
+                            <a href="#">Executive</a>
+                        </div>
+                    </div>
+                    <div class="share">
+                        <span>Share:</span>
+                        <div class="list">
+                            <a href="#">
+                                <i class="fa-brands fa-facebook fa-xl" style="color: #3162a2;"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000;"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-google-plus fa-xl" style="color: #c54542;"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-pinterest fa-xl" style="color: #c8232c;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="commententries">
+                <h3>Leave a Comment</h3>
+                <form action="#">
+                    <div class="texteria">
+                        <p>
+                            <label for="comment">
+                                Comment <span>*</span>
+                            </label>
+                            <textarea name="comment" id="comment" cols="45" rows="8" maxlength="65525"></textarea>
+                        </p>
+                    </div>
+                    <div class="inputs">
+                        <div class="column-one-half">
+                            <p>
+                                <label for="title">Name</label>
+                                <input type="text" name="author" id="author">
+                            </p>
+                        </div>
+                        <div class="column-one-half">
+                            <p>
+                                <label for="title">Email</label>
+                                <input type="text" name="email" id="email">
+                            </p>
+                        </div>
+                    </div>
+                    <p class="comment-from-cookies-consent">
+                        <input type="checkbox" name="comment-cookies" id="comment-cookies">
+                        <label for="comment-cookies">Save my name, email, and website in this browser for the next time I comment.</label>
+                    </p>
+                    <p class="form-submit">
+                        <input type="submit" value="Comment">
+                    </p>
+                </form>
+            </div>
+        </section>
+    }
+}
+
+
+
