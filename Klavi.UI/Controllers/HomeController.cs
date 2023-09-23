@@ -18,7 +18,7 @@ namespace Klavi.UI.Controllers
         {
             HomeVM vm = new HomeVM()
             {
-                Courses = await _context.Courses.ToListAsync(),
+                Courses = await _context.Courses.OrderByDescending(c => c.Created).ToListAsync(),
                 CourseCategories= await _context.CourseCategories.ToListAsync(),
                 Teachers=await _context.Teachers.ToListAsync(),
             };

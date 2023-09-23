@@ -12,4 +12,5 @@ public class AppDbContext:DbContext
 	public DbSet<CourseCategory> CourseCategories { get; set; }
 	public DbSet<CourseDetail> CourseDetails { get; set; }
 	public DbSet<Teachers> Teachers { get; set; }
+	public DbSet<Testimonial> Testimonials { get; set;}
 }

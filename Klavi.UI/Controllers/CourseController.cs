@@ -35,7 +35,8 @@ namespace Klavi.UI.Controllers
             {
                 Courses = await _context.Courses.ToListAsync(),
                 CourseCategories = await _context.CourseCategories.ToListAsync(),
-                CourseDetails = await _context.CourseDetails.ToListAsync()
+                CourseDetails = await _context.CourseDetails.ToListAsync(),
+                Testimonials = await _context.Testimonials.Where(t=> t.Position=="student").ToListAsync(),
             };
             return View(vm);
         }

@@ -19,6 +19,7 @@ namespace Klavi.UI.Controllers
             TeacherVm teacherVm = new()
             {
                 Teachers= await _context.Teachers.ToListAsync(),
+                Testimonials = await _context.Testimonials.Where(t => t.Position == "teacher").ToListAsync()
             };
             return View(teacherVm);
         }

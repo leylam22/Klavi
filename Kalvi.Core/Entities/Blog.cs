@@ -11,6 +11,7 @@ public class Blog : IEntity
     [Required, MaxLength(50)]
     public string Blogger { get; set; } = null!;
     public DateTime Date { get; set; }
+    public DateTime Created { get; set; } = DateTime.UtcNow;
     [Required, MaxLength(100)]
     public string Title { get; set; } = null!;
     [Required, MaxLength(250)]

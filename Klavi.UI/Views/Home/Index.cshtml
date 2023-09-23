@@ -131,7 +131,11 @@
             <h6>ONLY THE GREATEST MIND’S</h6>
         </div>
         <div class="card-deck">
-            @foreach (var course in Model.Courses)
+            @*Model.Courses.OrderByDescending(o => o.Data_Time).Take(3) bele etmek ucun 
+             hamisinin yaradilish tarixi elave etmelisen entitide
+             var course in Model.Courses.Take(3) birde bu var onunla ise ferqi olmaz sadece ucunu goturer ilk uclunu ama bize son yarananlar lazimdi
+            *@
+            @foreach (var course in Model.Courses.Take(3))
             {
                 <div class="card">
                     <div class="img">
@@ -250,7 +254,7 @@
             <h6>IGNITE YOUR VISION WITH US</h6>
         </div>
         <div class="teacher-grid">
-            @foreach (var teacher in Model.Teachers)
+            @foreach (var teacher in Model.Teachers.Take(9))
             {
                 <div class="col">
                     <div class="left">

@@ -84,66 +84,27 @@
                                     <!-- Additional required wrapper -->
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
-                                        <div class="swiper-slide">
-                                            <div class="autho">
-                                                <span>
-                                                    <img src="~/assets/image/testimonial1.jpg" alt="">
-                                                </span>
-                                                <cite>
-                                                    Stephen Chow
-                                                    <small>Student</small>
-                                                </cite>
+                                        @foreach (var item in Model.Testimonials)
+                                        {
+                                            <div class="swiper-slide">
+                                                <div class="autho">
+                                                    <span>
+                                                        <img src="@item.ImagePath" alt="">
+                                                    </span>
+                                                    <cite>
+                                                        @item.Name
+                                                        <small>@item.Position</small>
+                                                    </cite>
+                                                </div>
+                                                <div class="quote">
+                                                    <blockquote>
+                                                        <q>
+                                                            @item.Description
+                                                        </q>
+                                                    </blockquote>
+                                                </div>
                                             </div>
-                                            <div class="quote">
-                                                <blockquote>
-                                                    <q>
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipiscing elit. Morbi hendrerit elit turpis,
-                                                        a porttitor tellus sollicitudin at.
-                                                    </q>
-                                                </blockquote>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="autho">
-                                                <span>
-                                                    <img src="~/assets/image/testimonial2.jpg" alt="">
-                                                </span>
-                                                <cite>
-                                                    Stephen Chow
-                                                    <small>Student</small>
-                                                </cite>
-                                            </div>
-                                            <div class="quote">
-                                                <blockquote>
-                                                    <q>
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipiscing elit. Morbi hendrerit elit turpis,
-                                                        a porttitor tellus sollicitudin at.
-                                                    </q>
-                                                </blockquote>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="autho">
-                                                <span>
-                                                    <img src="~/assets/image/testimonial3.jpg" alt="">
-                                                </span>
-                                                <cite>
-                                                    Stephen Chow
-                                                    <small>Student</small>
-                                                </cite>
-                                            </div>
-                                            <div class="quote">
-                                                <blockquote>
-                                                    <q>
-                                                        Lorem ipsum dolor sit amet, consectetur
-                                                        adipiscing elit. Morbi hendrerit elit turpis,
-                                                        a porttitor tellus sollicitudin at.
-                                                    </q>
-                                                </blockquote>
-                                            </div>
-                                        </div>
+                                        }
                                     </div>
                                     <div class="pagination">
                                         <div class="swiper-button-prev"></div>

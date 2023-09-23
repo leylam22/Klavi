@@ -18,8 +18,9 @@ public class Course : IEntity
     public int Price { get; set; }
     [Required, MaxLength(30)]
     public string Type { get; set; } = null!;
+    public DateTime Created { get; set; } = DateTime.UtcNow;
     public int CourseCatagoryId { get; set; }
     public CourseCategory? CourseCategory { get; set; }
-    public int CourseDetailId { get; set; }
+    //public int CourseDetailId { get; set; }
     public CourseDetail CourseDetail { get; set; }
 }

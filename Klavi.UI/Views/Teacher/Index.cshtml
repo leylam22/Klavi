@@ -58,43 +58,24 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <div>
-                        <p>
-                            Ptent taciti sociosqu ad litora torquent per we conubia nostra,
-                            per inceptos.Class aptent taciti sociosqu adClass aptent taciti
-                            sociosqu ad litora torquent per conubia.Best Class aptent taciti
-                            sociosqu adClass aptent taciti sociosqu ad litora torquent per we
-                            conubia nostra
-                        </p>
-                    </div>
-                    <div>
-                        <div class="img">
-                            <div class="bg"></div>
-                            <img src="./image/testimonial3.jpg" alt="">
-                            <div class="bg"></div>
+                @foreach (var item in Model.Testimonials)
+                {
+                    <div class="swiper-slide">
+                        <div>
+                            <p>
+                                @item.Description
+                            </p>
                         </div>
-                        <b>Alen Spicer</b> <span>- Marketing</span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div>
-                        <p>
-                            AdClass aptent taciti sociosqu ad litora torquent per conubia.
-                            Best Class aptent taciti sociosqu adClass aptent taciti sociosqu
-                            ad litora torquent per we conubia nostra, per inceptos.Class
-                            aptent taciti sociosqu adClass aptent taciti sociosqu
-                        </p>
-                    </div>
-                    <div>
-                        <div class="img">
-                            <div class="bg"></div>
-                            <img src="./image/testimonial8.jpg" alt="">
-                            <div class="bg"></div>
+                        <div>
+                            <div class="img">
+                                <div class="bg"></div>
+                                <img src="@item.ImagePath" alt="">
+                                <div class="bg"></div>
+                            </div>
+                            <b>@item.Name</b> <span>- @item.Position</span>
                         </div>
-                        <b>Alen Spicer</b> <span>- Marketing</span>
                     </div>
-                </div>
+                }
 
             </div>
             <!-- If we need navigation buttons -->
