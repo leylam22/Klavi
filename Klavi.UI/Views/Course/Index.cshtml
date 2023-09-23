@@ -1,0 +1,170 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Course</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Course</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+<section>
+    <div class="container-courses">
+        <div class="left">
+            <div class="search-filter">
+                <input type="search" name="courses-search-filter" id="courses-search-filter" placeholder="Search Course">
+            </div>
+            <div class="course-category-filter">
+                <div class="title">
+                    <h3>Course Categories</h3>
+                    <div class="line"></div>
+                </div>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-1" id="coursefilter-category-1">
+                        <label for="coursefilter-category-1">Architecture</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-2" id="coursefilter-category-2">
+                        <label for="coursefilter-category-2">Education</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-3" id="coursefilter-category-3">
+                        <label for="coursefilter-category-3">Engineering</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-4" id="coursefilter-category-4">
+                        <label for="coursefilter-category-4">Geography</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-5" id="coursefilter-category-5">
+                        <label for="coursefilter-category-5">Law</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-6" id="coursefilter-category-6">
+                        <label for="coursefilter-category-6">Medical</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-7" id="coursefilter-category-7">
+                        <label for="coursefilter-category-7">Quantum Physics</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-8" id="coursefilter-category-8">
+                        <label for="coursefilter-category-8">Science</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-category-9" id="coursefilter-category-9">
+                        <label for="coursefilter-category-9">Share Market</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="course-teacher-filter">
+                <div class="title">
+                    <h3>Teachers</h3>
+                    <div class="line"></div>
+                </div>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-1">
+                        <label for="coursefilter-teacher-1">Penny Hopkins</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-2">
+                        <label for="coursefilter-teacher-2">Richard Smith</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-3">
+                        <label for="coursefilter-teacher-3">Marguerite Wash</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-4">
+                        <label for="coursefilter-teacher-4">Sylvia Hall</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-5">
+                        <label for="coursefilter-teacher-5">Picabo Street</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-6">
+                        <label for="coursefilter-teacher-6">Ram M</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="coursefilter-teacher" id="coursefilter-teacher-7">
+                        <label for="coursefilter-teacher-7">Agnes Porter</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="course-cost-filter">
+                <div class="title">
+                    <h3>Cost</h3>
+                    <div class="line"></div>
+                </div>
+                <ul>
+                    <li>
+                        <input type="radio" name="coursefilter-cost" id="coursefilter-cost-all">
+                        <label for="coursefilter-cost-all">All</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="coursefilter-cost" id="coursefilter-cost-free">
+                        <label for="coursefilter-cost-free">Free</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="coursefilter-cost" id="coursefilter-cost-paid">
+                        <label for="coursefilter-cost-paid">Paid</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                @foreach (var course in Model.Courses)
+                {
+                    <div class="col">
+                        <div class="card">
+                            <img src="@course.ImagePath" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="category">
+                                    <a href="#">@course.CourseCategory.Catagory</a>
+                                </p>
+                                <h5 class="card-title">
+                                    <a asp-action="Detail" asp-route-id="@course.Id">@course.Title</a>
+                                </h5>
+                                <p class="card-text">
+                                    @course.Description
+                                </p>
+                                <div class="ratings-container">
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                        <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                        <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                        <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                        <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                    </div>
+                                    <div class="ratings">
+                                        4 <span>(2 Reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="cost">
+                                    <span>$@course.Price</span>
+                                </div>
+                                <div class="cart">
+                                    <a class="add-cart" href="#">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

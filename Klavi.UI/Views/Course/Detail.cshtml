@@ -1,0 +1,209 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+@foreach (var detail in Model.Courses)
+{
+    if (detail.Id == ViewBag.CourseId)
+    {
+        <section>
+            <div class="course-detail-image">
+                <img src="@detail.ImagePath" alt="">
+            </div>
+            <div class="container-course-detail">
+                <div class="course-detail-body">
+                    <div class="left">
+                        <div class="inner-detail">
+                            <div class="img-holder">
+                                <img src="@detail.ImagePath" alt="">
+                                <a href="#">View Forum</a>
+                            </div>
+                            <div class="detail-holder">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-institution"></i>
+                                        <label>Class :</label>
+                                        <a href="#">@detail.Title</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bookmark"></i>
+                                        <label> Categories :</label>
+                                        <a href="#">@detail.CourseCategory.Catagory</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-book"></i>
+                                        <label>Lessons :</label>
+                                        <span>@detail.CourseDetail.Lessons</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        <label> Duration :</label>
+                                        <span>@detail.CourseDetail.Duration</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share-holder">
+                            <div class="title">
+                                <h3>Social Share</h3>
+                                <div class="line"></div>
+                            </div>
+                            <div class="icons">
+                                <ul>
+                                    <li>
+                                        <a href="http://del.icio.us" target="_blank">
+                                            <span class="fa fa-delicious"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://digg.com/" target="_blank">
+                                            <span class="fa fa-digg"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/" target="_blank">
+                                            <span class="fa fa-linkedin"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pinterest.com/" target="_blank">
+                                            <span class="fa fa-pinterest"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="title">
+                                <h3>Testimonial</h3>
+                                <div class="line"></div>
+                            </div>
+                            <div class="container">
+                                <div class="swiper mySwiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <div class="swiper-slide">
+                                            <div class="autho">
+                                                <span>
+                                                    <img src="~/assets/image/testimonial1.jpg" alt="">
+                                                </span>
+                                                <cite>
+                                                    Stephen Chow
+                                                    <small>Student</small>
+                                                </cite>
+                                            </div>
+                                            <div class="quote">
+                                                <blockquote>
+                                                    <q>
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipiscing elit. Morbi hendrerit elit turpis,
+                                                        a porttitor tellus sollicitudin at.
+                                                    </q>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="autho">
+                                                <span>
+                                                    <img src="~/assets/image/testimonial2.jpg" alt="">
+                                                </span>
+                                                <cite>
+                                                    Stephen Chow
+                                                    <small>Student</small>
+                                                </cite>
+                                            </div>
+                                            <div class="quote">
+                                                <blockquote>
+                                                    <q>
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipiscing elit. Morbi hendrerit elit turpis,
+                                                        a porttitor tellus sollicitudin at.
+                                                    </q>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="autho">
+                                                <span>
+                                                    <img src="~/assets/image/testimonial3.jpg" alt="">
+                                                </span>
+                                                <cite>
+                                                    Stephen Chow
+                                                    <small>Student</small>
+                                                </cite>
+                                            </div>
+                                            <div class="quote">
+                                                <blockquote>
+                                                    <q>
+                                                        Lorem ipsum dolor sit amet, consectetur
+                                                        adipiscing elit. Morbi hendrerit elit turpis,
+                                                        a porttitor tellus sollicitudin at.
+                                                    </q>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pagination">
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="content-holder">
+                            <div class="left">
+                                <h2>@detail.Title</h2>
+                                <div class="content-meta">
+                                    <div class="author">
+                                        <img src="~/assets/image/Ram-M.jpg" alt="Ram M">
+                                        <h5>
+                                            <a href="./singleTeacher.html">Ram M</a>
+                                        </h5>
+                                    </div>
+                                    <div class="curriculum">
+                                        <i class="fas fa-book"></i>
+                                        4 Curriculum
+                                    </div>
+                                    <div class="rating-container">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                            <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                            <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                            <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                            <i class="fa-solid fa-star" style="color: #ffdd00;"></i>
+                                        </div>
+                                        <div class="ratings">
+                                            <span>(2 Reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="price">
+                                    <span>$@detail.Price</span>
+                                </div>
+                                <div class="cart">
+                                    <a class="add-cart" href="#">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to Cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video">
+                            <div class="video-title">Course Intro Video</div>
+                            <div class="detail-video">
+                                <iframe src="@detail.CourseDetail.VideoPath" frameborder="0" width="100%" height="658"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
+
