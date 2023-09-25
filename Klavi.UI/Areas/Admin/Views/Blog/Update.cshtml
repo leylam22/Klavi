@@ -1,0 +1,67 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Update Blog Items</h4>
+
+        <form method="post">
+            <img src="@Model.ImagePath" style="width:300px" />
+            <div class="row mb-4">
+                <label asp-for="ImagePath" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="ImagePath" class="form-control" id="horizontal-firstname-input" placeholder="Enter Image Path ">
+                    <span class="text-danger" asp-validation-for="ImagePath"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Blogger" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Blogger" class="form-control" id="horizontal-firstname-input" placeholder="Enter Blogger ">
+                    <span class="text-danger" asp-validation-for="Blogger"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Date" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Date" class="form-control" id="horizontal-firstname-input" placeholder="Enter Date ">
+                    <span class="text-danger" asp-validation-for="Date"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Title" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Title" class="form-control" id="horizontal-firstname-input" placeholder="Enter Title ">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Description" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Description" class="form-control" id="horizontal-firstname-input" placeholder="Enter Description ">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label asp-for="BlogInfo" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="BlogInfo" class="form-control" id="horizontal-firstname-input" placeholder="Enter Description ">
+                    <span class="text-danger" asp-validation-for="BlogInfo"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-sm-9">
+                    <div>
+                        <button type="submit" class="btn btn-primary w-md">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- end card body -->
+</div>
+
