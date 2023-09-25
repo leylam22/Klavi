@@ -1,0 +1,52 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Update Testimonial Items</h4>
+
+        <form method="post">
+            <img src="@Model.ImagePath" style="width:300px" />
+            <div class="row mb-4">
+                <label asp-for="ImagePath" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="ImagePath" class="form-control" id="horizontal-firstname-input" placeholder="Enter Image Path ">
+                    <span class="text-danger" asp-validation-for="ImagePath"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Description" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Description" class="form-control" id="horizontal-firstname-input" placeholder="Enter Description ">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Name" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Name" class="form-control" id="horizontal-firstname-input" placeholder="Enter Name ">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Position" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Position" class="form-control" id="horizontal-firstname-input" placeholder="Enter Position ">
+                    <span class="text-danger" asp-validation-for="Position"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-sm-9">
+                    <div>
+                        <button type="submit" class="btn btn-primary w-md">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- end card body -->
+</div>
+

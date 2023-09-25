@@ -16,13 +16,29 @@ namespace Klavi.UI.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             HomeVM vm = new HomeVM()
             {
-                Courses = await _context.Courses.OrderByDescending(c => c.Created).ToListAsync(),
+
+                Courses = await _context.Courses.Include(x => x.CourseCategory).OrderByDescending(c => c.Created).ToListAsync(),
                 CourseCategories= await _context.CourseCategories.ToListAsync(),
                 Teachers=await _context.Teachers.ToListAsync(),
             };
             return View(vm);
         }
+
+        public async Task<IActionResult> SearchCourse(CourseFilterVM courseFilterVM)
+        {
+
+            HomeVM vm = new HomeVM()
+            {
+
+                Courses = await _context.Courses.Include(x => x.CourseCategory).OrderByDescending(c => c.Created).ToListAsync(),
+                CourseCategories= await _context.CourseCategories.ToListAsync(),
+                Teachers=await _context.Teachers.ToListAsync(),
+            };
+            return View(vm);
+        }
+
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Testimonial Cards</h4>
+        <a asp-action="Create" class="btn btn-primary mb-3">Create New Testimonial</a>
+        <div class="table-responsive">
+            <table class="table table-dark mb-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Image Path</th>
+                        <th>Description</th>
+                        <th>Full Name</th>
+                        <th>Position</th>
+                        <th>Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var testimonial in Model)
+                    {
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td><img src="@testimonial.ImagePath" style="width:200px" /></td>
+                            <td style="width:300px">@testimonial.Description</td>
+                            <td>@testimonial.Name</td>
+                            <td>@testimonial.Position</td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@testimonial.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Delete" asp-route-id="@testimonial.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+

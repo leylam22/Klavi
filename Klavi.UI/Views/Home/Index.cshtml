@@ -11,15 +11,20 @@
             <h1>Search your Favorite Course here</h1>
             <h4>TOP NOTCH COURSES FROM TRAINED PROFESSIONALS</h4>
             <div class="dropdown-fltr">
-                <input type="text" name="Keywords" placeholder="Keywords">
+                <input type="text" a name="Keywords" placeholder="Keywords">
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categories
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @foreach (var category in Model.CourseCategories)
+                        {
+                            <li>
+                                <a class="dropdown-item" href="">
+                                    <input class="dropdown-item" name="@category.Id" value="@category.Catagory" href="" type="button" />
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -27,9 +32,14 @@
                         Instructor
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @foreach (var instructor in Model.Teachers)
+                        {
+                            <li>
+                                <a class="dropdown-item" href="">
+                                    <input name="@instructor.Id" value="@instructor.FullName" type="button" />
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -131,9 +141,9 @@
             <h6>ONLY THE GREATEST MIND’S</h6>
         </div>
         <div class="card-deck">
-            @*Model.Courses.OrderByDescending(o => o.Data_Time).Take(3) bele etmek ucun 
-             hamisinin yaradilish tarixi elave etmelisen entitide
-             var course in Model.Courses.Take(3) birde bu var onunla ise ferqi olmaz sadece ucunu goturer ilk uclunu ama bize son yarananlar lazimdi
+            @*Model.Courses.OrderByDescending(o => o.Data_Time).Take(3) bele etmek ucun
+            hamisinin yaradilish tarixi elave etmelisen entitide
+            var course in Model.Courses.Take(3) birde bu var onunla ise ferqi olmaz sadece ucunu goturer ilk uclunu ama bize son yarananlar lazimdi
             *@
             @foreach (var course in Model.Courses.Take(3))
             {
@@ -577,4 +587,3 @@
     </div>
 </section>
 <!-- End Part -->
-
