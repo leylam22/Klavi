@@ -1,0 +1,19 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-body">
+        <img src="@Model.ImagePath" style="width:450px" /> <br /> <br />
+        <h4 class="card-title">@Model.Title</h4> <hr />
+        <span class="card-title-desc" style="margin-right:30px"> @Model.Description</span>   <br /> <br />
+        <div class="d-flex flex-wrap gap-2">
+            <form method="post" asp-route-id="@Model.Id">
+                <button type="submit" class="btn btn-danger waves-effect waves-light">Delete</button>
+            </form>
+            <a asp-action="Index" class="btn btn-light waves-effect">Back to list</a>
+        </div>
+    </div>
+</div>
+

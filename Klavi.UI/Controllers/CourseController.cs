@@ -18,7 +18,7 @@ namespace Klavi.UI.Controllers
         {
             HomeVM vm = new HomeVM()
             {
-                Courses = await _context.Courses.ToListAsync(),
+                Courses = await _context.Courses.Include(c => c.CourseCategory).ToListAsync(),
                 CourseCategories = await _context.CourseCategories.ToListAsync(),
                 CourseDetails = await _context.CourseDetails.ToListAsync()
             };

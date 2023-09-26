@@ -8,8 +8,6 @@ public class CourseDetail : IEntity
 {
     public int Id { get ; set ; }
     [Required, MaxLength(255)]
-    public string ImagePath { get; set; } = null!;
-    [Required, MaxLength(255)]
     public string VideoPath { get; set; } = null!;
     public int Lessons { get; set; }
     [Required, MaxLength(50)]

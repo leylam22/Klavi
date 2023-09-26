@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1; 
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Course table</h4>
+                <div class="table-responsive">
+                    <a asp-area="Admin" asp-controller="Course" asp-action="Create" class="btn btn-success waves-effect waves-light">Create</a>
+                    <table class="table mb-0">
+
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Catagory</th>
+                                <th>Price</th>
+                                <th>Type</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var course in Model)
+                            {
+                                <tr>
+                                    <th scope="row"><img style="width:250px" src="@course.ImagePath" /></th>
+                                    <td>@course.Title</td>
+                                    <td>@course.Description</td>
+                                    <td>@course.CourseCategory?.Catagory</td>
+                                    <td>@course.Price</td>
+                                    <td>@course.Type</td>
+                                    <td>@course.Created</td>
+                                    <td>
+                                        @*<button type="button" class="btn btn-warning waves-effect waves-light">Detail</button>*@
+                                        <a asp-controller="Course" asp-action="Update" asp-route-id="@course.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                        <a asp-controller="Course" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                count++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

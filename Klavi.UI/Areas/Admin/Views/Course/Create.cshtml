@@ -1,0 +1,98 @@
+﻿@model CoursePostVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create course</h4>
+                <form method="post" class="app-search d-none d-lg-block">
+                    <div class="mb-3 row">
+                        <label asp-for="Title" for="example-text-input" class="col-md-2 col-form-label">Title</label>
+                        <div class="col-md-10">
+                            <input asp-for="Title" class="form-control" type="text">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="ImagePath" for="example-email-input" class="col-md-2 col-form-label">Image Path</label>
+                        <div class="col-md-10">
+                            <input asp-for="ImagePath" class="form-control" type="text"
+                                   id="example-email-input">
+                        </div>
+                    </div>
+                    <h3>Course Details</h3>
+                    <div class="mb-3 row">
+                        <label asp-for="Duration" for="example-search-input" class="col-md-2 col-form-label">Duration</label>
+                        <div class="col-md-10">
+                            <input asp-for="Duration" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="Price" for="example-search-input" class="col-md-2 col-form-label">Course Price</label>
+                        <div class="col-md-10">
+                            <input asp-for="Price" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="Type" for="example-search-input" class="col-md-2 col-form-label">Course Type</label>
+                        <div class="col-md-10">
+                            <input asp-for="Type" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="Start" for="example-search-input" class="col-md-2 col-form-label">Start</label>
+                        <div class="col-md-10">
+                            <input asp-for="Start" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="Lessons" for="example-search-input" class="col-md-2 col-form-label">Lessons</label>
+                        <div class="col-md-10">
+                            <input asp-for="Lessons" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="VideoPath" for="example-search-input" class="col-md-2 col-form-label">Video</label>
+                        <div class="col-md-10">
+                            <input asp-for="VideoPath" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label asp-for="Description" for="example-search-input" class="col-md-2 col-form-label">Description</label>
+                        <div class="col-md-10">
+                            <input asp-for="Description" class="form-control" type="text" id="example-search-input">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="mb-3 row">
+                            <label class="col-md-2 col-form-label">Select Category</label>
+                            <div class="col-md-10">
+                                <div class="col-2">
+
+                                    <select class="form-select" asp-for="CourseCatagoryId">
+                                        @foreach (var catagory in ViewBag.Catagories)
+                                        {
+                                            <option value="@catagory.Id">@catagory.Catagory</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="mb-3 row">
+                        <label asp-for="Description" class="col-md-2 col-form-label">Description</label>
+                        <textarea asp-for="Description" id="tiny"></textarea>
+                    </div>*@
+                    <div>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+
