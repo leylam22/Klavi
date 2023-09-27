@@ -63,7 +63,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.Course", b =>
@@ -74,10 +74,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CourseCatagoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CourseCategoryId")
+                    b.Property<int>("CourseCategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Created")
@@ -110,7 +107,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasIndex("CourseCategoryId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.CourseCategory", b =>
@@ -133,7 +130,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CourseCategories");
+                    b.ToTable("CourseCategories", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.CourseDetail", b =>
@@ -168,7 +165,7 @@ namespace Kalvi.DataAccess.Migrations
                     b.HasIndex("CourseId")
                         .IsUnique();
 
-                    b.ToTable("CourseDetails");
+                    b.ToTable("CourseDetails", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.Teachers", b =>
@@ -196,7 +193,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers");
+                    b.ToTable("Teachers", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.Testimonial", b =>
@@ -229,14 +226,16 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Testimonials");
+                    b.ToTable("Testimonials", (string)null);
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.Course", b =>
                 {
                     b.HasOne("Kalvi.Core.Entities.CourseCategory", "CourseCategory")
                         .WithMany("Courses")
-                        .HasForeignKey("CourseCategoryId");
+                        .HasForeignKey("CourseCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CourseCategory");
                 });

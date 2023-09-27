@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kalvi.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230921172340_changeBlogColum")]
-    partial class changeBlogColum
+    [Migration("20230926235322_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,9 @@ namespace Kalvi.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -73,14 +76,11 @@ namespace Kalvi.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CourseCatagoryId")
+                    b.Property<int>("CourseCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CourseCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseDetailId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -151,11 +151,6 @@ namespace Kalvi.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
                     b.Property<int>("Lessons")
                         .HasColumnType("int");
 
@@ -203,11 +198,46 @@ namespace Kalvi.DataAccess.Migrations
                     b.ToTable("Teachers");
                 });
 
+            modelBuilder.Entity("Kalvi.Core.Entities.Testimonial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Testimonials");
+                });
+
             modelBuilder.Entity("Kalvi.Core.Entities.Course", b =>
                 {
                     b.HasOne("Kalvi.Core.Entities.CourseCategory", "CourseCategory")
                         .WithMany("Courses")
-                        .HasForeignKey("CourseCategoryId");
+                        .HasForeignKey("CourseCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CourseCategory");
                 });

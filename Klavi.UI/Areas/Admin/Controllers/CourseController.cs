@@ -49,7 +49,7 @@ public class CourseController : Controller
         course.Title = coursePost.Title;
         course.Description = coursePost.Description;
         course.ImagePath = coursePost.ImagePath;
-        course.CourseCatagoryId = coursePost.CourseCatagoryId;
+        course.CourseCategoryId = coursePost.CourseCatagoryId;
         course.Type= coursePost.Type;
         course.Price= coursePost.Price;
 
@@ -58,8 +58,7 @@ public class CourseController : Controller
             VideoPath = coursePost.VideoPath,
             Lessons = coursePost.Lessons,
             Start = coursePost.Start,
-            Duration = coursePost.Duration,
-            //ImagePath= coursePost.ImagePath,
+            Duration = coursePost.Duration
         };
         await _context.AddAsync(course);
         await _context.SaveChangesAsync();
@@ -91,35 +90,35 @@ public class CourseController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    //public async Task<IActionResult> Update(int id)
-    //{
-    //    Course? Coursedb = await _context.Courses.Include(cd => cd.CourseDetail).FirstOrDefaultAsync(a => a.Id == id);
-    //    //ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
-    //    ViewBag.CourseCategory = await _context.CourseCategories.ToListAsync();
-    //    if (Coursedb is null) return NotFound();
-    //    var CoursVm = _mapper.Map<CoursePostVM>(Coursedb);
-    //    return View(CoursVm);
-    //}
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public async Task<IActionResult> Update(int Id, Course Course)
-    //{
-    //    if (Id != Course.Id)
-    //    {
-    //        return BadRequest();
-    //    }
-    //    if (!ModelState.IsValid)
-    //    {
-    //        ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
-    //        return View(Course);
-    //    }
-    //    Course? Coursedb = await _context.Courses.AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
-    //    if (Coursedb == null)
-    //    {
-    //        return NotFound();
-    //    }
-    //    _context.Entry(Course).State = EntityState.Modified;
-    //    await _context.SaveChangesAsync();
-    //    return RedirectToAction(nameof(Index));
-    //}
+    public async Task<IActionResult> Update(int id)
+    {
+        Course? Coursedb = await _context.Courses.Include(cd => cd.CourseDetail).FirstOrDefaultAsync(a => a.Id == id);
+        //ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
+        ViewBag.CourseCategory = await _context.CourseCategories.ToListAsync();
+        if (Coursedb is null) return NotFound();
+        var CoursVm = _mapper.Map<CoursePostVM>(Coursedb);
+        return View(CoursVm);
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Update(int Id, Course Course)
+    {
+        if (Id != Course.Id)
+        {
+            return BadRequest();
+        }
+        if (!ModelState.IsValid)
+        {
+            ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
+            return View(Course);
+        }
+        Course? Coursedb = await _context.Courses.AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
+        if (Coursedb == null)
+        {
+            return NotFound();
+        }
+        _context.Entry(Course).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 }
