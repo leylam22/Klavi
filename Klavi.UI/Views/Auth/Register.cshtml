@@ -1,0 +1,71 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section>
+    <div class="singup-container">
+        <div class="singup-title">
+            <h2>
+                <span>Welcome! <strong>Sing Up</strong></span>
+            </h2>
+            <div class="line"></div>
+        </div>
+        <div class="singup-form-holder">
+            <form action="" name="singupform" id="singupform" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <p class="singup-username">
+                    <label asp-for="Username" ></label>
+                    <input asp-for="Username" id="user_singup">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </p>
+                <p class="singup-fullname">
+                    <label asp-for="Fullname" ></label>
+                    <input asp-for="Fullname" id="user_fullname">
+                    <span asp-validation-for="Fullname" class="text-danger"></span>
+                </p>
+                <p class="singup-email">
+                    <label asp-for="Email">E-mail</label>
+                    <input asp-for="Email"  id="user_email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </p>
+                <p class="singup-password">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" id="user_pass">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </p>
+                <p class="singup-comfirmPassword">
+                    <label asp-for="ComfirmPassword">Comfirm Password</label>
+                    <input asp-for="ComfirmPassword" id="user_cmfrm_pass">
+                    <span asp-validation-for="ComfirmPassword" class="text-danger"></span>
+                </p>
+                <p class="singup-remember">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember Me</label>
+                </p>
+                <p class="singup-submit">
+                    <input type="submit" value="Sing Up" name="wp-submit" id="wp-submit" class="button button-primary">
+                </p>
+            </form>
+            <p class="forget-pwd">
+                <a href="">Forgot password ?</a>
+            </p>
+            <p class="other-option">
+                <a asp-controller="Auth" asp-action="LogIn">Log In</a>
+            </p>
+        </div>
+        <div class="social-singups-container">
+            <div class="singups-divider"><span>Or</span></div>
+            <a href="" class="facebook">
+                <i class="fa fa-facebook" style="color: #ffffff;"></i>
+                Connect With Facebook
+            </a>
+            <a href="" class="google">
+                <i class="fa fa-google" style="color: #ffffff;"></i>
+                Connect With Google
+            </a>
+        </div>
+    </div>
+</section>
+
+

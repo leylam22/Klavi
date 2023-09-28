@@ -1,0 +1,55 @@
+﻿@model LogInVM
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<section>
+    <div class="login-container">
+        <div class="login-title">
+            <h2>
+                <span>Welcome! <strong>Login</strong></span>
+            </h2>
+            <div class="line"></div>
+        </div>
+        <div class="login-form-holder">
+            <form action="" name="loginform" id="loginform" method="post">
+                <p class="login-username">
+                    <label asp-for="UserNameOrEmail" ></label>
+                    <input asp-for="UserNameOrEmail" id="user_login">
+                    <span asp-validation-for="UserNameOrEmail" class="text-danger"></span>
+                </p>
+                <p class="login-password">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" id="user_pass">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </p>
+                <p class="login-remember">
+                    <input asp-for="RememberMe" type="checkbox" id="remember">
+                    <label asp-for="RememberMe">Remember Me</label>
+                </p>
+                <p class="login-submit">
+                    <input type="submit" value="Log In" name="wp-submit" id="wp-submit" class="button button-primary">
+                </p>
+            </form>
+            <p class="forget-pwd">
+                <a asp-action="ForgotPassword">Forgot password ?</a>
+            </p>
+            <p class="other-option">
+                <a asp-controller="Auth" asp-action="Register">Sing Up</a>
+            </p>
+        </div>
+        <div class="social-logins-container">
+            <div class="logins-divider"><span>Or</span></div>
+            <a href="" class="facebook">
+                <i class="fa fa-facebook" style="color: #ffffff;"></i>
+                Connect With Facebook
+            </a>
+            <a href="" class="google">
+                <i class="fa fa-google" style="color: #ffffff;"></i>
+                Connect With Google
+            </a>
+        </div>
+    </div>
+</section>
+
+        

@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
 using Kalvi.Core.Entities;
+using Kalvi.Core.Utilites;
 using Kalvi.DataAccess.Contexts;
 using Klavi.UI.Areas.Admin.ViewModels.CourseViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static Kalvi.Core.Utilites.UserRole;
 
 namespace Klavi.UI.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = UserRole.Admin)]
 public class CourseController : Controller
 {
     private readonly AppDbContext _context;
