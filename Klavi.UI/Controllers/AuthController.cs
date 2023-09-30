@@ -104,4 +104,54 @@ public class AuthController : Controller
     //}
     #endregion
 
+    public IActionResult ForgotPassword() => View();
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ForgotPassword(ForgotPasswordModel forgotPasswordModel)
+    {
+        if (!ModelState.IsValid)
+            return View(forgotPasswordModel);
+        var user = await _userManager.FindByEmailAsync(forgotPasswordModel.Email);
+        if (user == null)
+            return RedirectToAction(nameof(ForgotPasswordConfirmation));
+
+        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+        var callback = Url.Action(nameof(ResetPassword), "Auth", new { token, email = user.Email }, Request.Scheme);
+        return Content(callback);
+        //var message = new Message(new string[] { user.Email }, "Reset password token", callback, null);
+        //await _emailSender.SendEmailAsync(message);
+    }
+
+    public IActionResult ForgotPasswordConfirmation() => View();
+
+    public IActionResult ResetPassword(string token, string email)
+    {
+        var model = new ResetPasswordModel { Token = token, Email = email };
+        return View(model);
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
+    {
+        if (!ModelState.IsValid) return View(resetPasswordModel);
+        AppUser user = await _userManager.FindByEmailAsync(resetPasswordModel.Email);
+        if (user == null) RedirectToAction(nameof(ResetPasswordConfirmation));
+        var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPasswordModel.Token, resetPasswordModel.Password);
+        if (!resetPassResult.Succeeded)
+        {
+            foreach (var error in resetPassResult.Errors)
+            {
+                ModelState.TryAddModelError(error.Code, error.Description);
+            }
+            return View();
+        }
+        else
+        {
+
+        return RedirectToAction(nameof(ResetPasswordConfirmation));
+        }
+    }
+    [HttpGet]
+    public IActionResult ResetPasswordConfirmation() => View();
 }
