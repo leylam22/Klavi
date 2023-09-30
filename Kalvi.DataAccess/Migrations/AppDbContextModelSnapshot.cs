@@ -161,6 +161,9 @@ namespace Kalvi.DataAccess.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<int>("TeachersId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -174,6 +177,8 @@ namespace Kalvi.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseCategoryId");
+
+                    b.HasIndex("TeachersId");
 
                     b.ToTable("Courses");
                 });
@@ -438,7 +443,15 @@ namespace Kalvi.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Kalvi.Core.Entities.Teachers", "Teachers")
+                        .WithMany("Courses")
+                        .HasForeignKey("TeachersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("CourseCategory");
+
+                    b.Navigation("Teachers");
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.CourseDetail", b =>
@@ -510,6 +523,11 @@ namespace Kalvi.DataAccess.Migrations
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.CourseCategory", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Kalvi.Core.Entities.Teachers", b =>
                 {
                     b.Navigation("Courses");
                 });

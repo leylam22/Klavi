@@ -1,0 +1,44 @@
+﻿@model TeacherPostVm
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Horizontal Form Layout</h4>
+
+        <form method="post">
+            <div class="row mb-4">
+                <label asp-for="ImagePath" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="ImagePath" class="form-control" id="horizontal-firstname-input" placeholder="Enter Image Path ">
+                    <span class="text-danger" asp-validation-for="ImagePath"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="FullName" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="FullName" class="form-control" id="horizontal-firstname-input" placeholder="Enter Blogger ">
+                    <span class="text-danger" asp-validation-for="FullName"></span>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label asp-for="Position" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Position" class="form-control" id="horizontal-firstname-input" placeholder="Enter Date ">
+                    <span class="text-danger" asp-validation-for="Position"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-sm-9">
+                    <div>
+                        <button type="submit" class="btn btn-primary w-md">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- end card body -->
+</div>
+

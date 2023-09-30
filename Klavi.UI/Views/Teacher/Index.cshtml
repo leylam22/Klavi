@@ -29,7 +29,7 @@
                 </div>
                 <div class="right">
                     <h4>
-                        <a href="./singleTeacher.html">@teacher.FullName</a>
+                        <a asp-controller="Teacher" asp-action="Detail" asp-route-id="@teacher.Id">@teacher.FullName</a>
                     </h4>
                     <h5>@teacher.Position</h5>
                     <div class="social-links">

@@ -1,0 +1,100 @@
+﻿@model TeacherVm
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Teachers name</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Teachers Name</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+@foreach (var teachers in Model.Teachers)
+{
+    if (teachers.Id == ViewBag.TeacherId)
+    {
+        <section>
+            <div class="container">
+                <div class="left">
+                    <div class="teacher">
+                        <img src="@teachers.ImagePath" alt="">
+                        <h4>
+                            <a href="#">@teachers.FullName</a>
+                        </h4>
+                        <h5>@teachers.Position</h5>
+                        <div class="icons">
+                            <i class="fa-brands fa-twitter" style="color: #6095f0;"></i>
+                            <i class="fa-brands fa-facebook-f" style="color: #6095f0;"></i>
+                            <i class="fa-brands fa-google-plus-g" style="color: #6095f0;"></i>
+                            <i class="fa-brands fa-pinterest" style="color: #6095f0;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="classes">
+                        <h5>Classes Handling</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="bg-warning" scope="col">CLASS NAME</th>
+                                    <th class="bg-warning" scope="col">CLASS TYPE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <td>
+                                        <a href="#">Class With Timetable Plugin</a>
+                                    </td>
+                                    <td>online</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Foreign Language Classes</a>
+                                    </td>
+                                    <td>onsite</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="courses">
+                        <h5>Courses Handling</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="bg-warning" scope="col">COURSE NAME</th>
+                                    <th class="bg-warning" scope="col">CURRICULUM(S)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <td>
+                                        <a href="#">
+                                            Course With Free Curriculums
+                                        </a>
+                                    </td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">
+                                            A Glimpse of Virtual
+                                        </a>
+                                    </td>
+                                    <td>8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
+
+

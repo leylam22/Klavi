@@ -12,4 +12,5 @@ public class Teachers : IEntity
     public string ImagePath { get; set; } = null!;
     [Required, MaxLength(100)] 
     public string Position { get; set; } = null!;
+    //public ICollection<Course> Courses { get; set; }
 }

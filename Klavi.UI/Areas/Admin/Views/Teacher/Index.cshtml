@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Teachers>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Teachers Cards</h4>
+        <a asp-action="Create" class="btn btn-primary mb-3">Create New Teacher</a>
+        <div class="table-responsive">
+            <table class="table table-dark mb-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Full Name</th>
+                        <th>Position</th>
+                        <th>Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var teacher in Model)
+                    {
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td><img src="@teacher.ImagePath" style="width:200px" /></td>
+                            <td>@teacher.FullName</td>
+                            <td>@teacher.Position</td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@teacher.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Delete" asp-route-id="@teacher.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+

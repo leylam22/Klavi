@@ -23,5 +23,18 @@ namespace Klavi.UI.Controllers
             };
             return View(teacherVm);
         }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            if (id == 0) return NotFound();
+            var teacher = await _context.Teachers.FindAsync(id);
+            if (teacher == null) return NotFound();
+            ViewBag.TeacherId = teacher.Id;
+            TeacherVm vm = new()
+            {
+                Teachers= await _context.Teachers.ToListAsync()
+            };
+            return View(vm);
+        }
     }
 }
