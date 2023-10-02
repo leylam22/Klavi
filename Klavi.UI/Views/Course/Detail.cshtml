@@ -120,14 +120,14 @@
                                 <h2>@detail.Title</h2>
                                 <div class="content-meta">
                                     <div class="author">
-                                        <img src="~/assets/image/Ram-M.jpg" alt="Ram M">
+                                        <img src="@detail.Teachers.ImagePath" alt="Ram M">
                                         <h5>
-                                            <a href="./singleTeacher.html">Ram M</a>
+                                            <a href="./singleTeacher.html">@detail.Teachers.FullName</a>
                                         </h5>
                                     </div>
                                     <div class="curriculum">
                                         <i class="fas fa-book"></i>
-                                        4 Curriculum
+                                        @detail.Type
                                     </div>
                                     <div class="rating-container">
                                         <div class="stars">

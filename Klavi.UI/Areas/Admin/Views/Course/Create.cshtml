@@ -83,6 +83,25 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mt-4">
+                        <div class="mb-3 row">
+                            <label class="col-md-2 col-form-label">Select Teaher</label>
+                            <div class="col-md-10">
+                                <div class="col-2">
+
+                                    <select class="form-select" asp-for="TeachersId">
+                                        @foreach (var teacher in ViewBag.Teachers)
+                                        {
+                                            <option value="@teacher.Id">@teacher.FullName</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                     @*<div class="mb-3 row">
                         <label asp-for="Description" class="col-md-2 col-form-label">Description</label>
                         <textarea asp-for="Description" id="tiny"></textarea>

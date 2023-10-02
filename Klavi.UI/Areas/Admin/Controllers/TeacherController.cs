@@ -41,7 +41,7 @@ public class TeacherController : Controller
         {
             return View();
         }
-        Teachers teachers = _mapper.Map<Teachers>(teacherPostVm);
+        Teacher teachers = _mapper.Map<Teacher>(teacherPostVm);
         await _context.Teachers.AddAsync(teachers);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
@@ -49,7 +49,7 @@ public class TeacherController : Controller
 
     public async Task<IActionResult> Delete(int id)
     {
-        Teachers? teachers = await _context.Teachers.FindAsync(id);
+        Teacher? teachers = await _context.Teachers.FindAsync(id);
         if (teachers == null) return NotFound();
         return View(teachers);
     }
@@ -59,7 +59,7 @@ public class TeacherController : Controller
     [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeletePost(int id)
     {
-        Teachers teachers = await _context.Teachers.FindAsync(id);
+        Teacher teachers = await _context.Teachers.FindAsync(id);
         if (teachers == null) return NotFound();
         _context.Teachers.Remove(teachers);
         await _context.SaveChangesAsync();
@@ -68,20 +68,20 @@ public class TeacherController : Controller
 
     public async Task<IActionResult> Update(int id)
     {
-        Teachers? teachers = await _context.Teachers.FindAsync(id);
+        Teacher? teachers = await _context.Teachers.FindAsync(id);
         if (teachers == null) return NotFound();
         return View(teachers);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Update(int id, Teachers teachers)
+    public async Task<IActionResult> Update(int id, Teacher teachers)
     {
         if (id != teachers.Id) return BadRequest();
         if (!ModelState.IsValid) return View(teachers);
-        Teachers? teacherdb = await _context.Teachers.AsNoTracking().FirstOrDefaultAsync( t => t.Id == id);
+        Teacher? teacherdb = await _context.Teachers.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
         if (teacherdb == null) return NotFound();
-        _context.Entry(teachers).State= EntityState.Modified;
+        _context.Entry(teachers).State = EntityState.Modified;
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

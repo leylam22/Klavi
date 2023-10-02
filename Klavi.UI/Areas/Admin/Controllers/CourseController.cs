@@ -24,13 +24,14 @@ public class CourseController : Controller
 
     public async Task<IActionResult> Index()
     {
-        List<Course> courses = await _context.Courses.Include(c => c.CourseCategory).ToListAsync();
+        List<Course> courses = await _context.Courses.Include(c => c.CourseCategory).Include(t => t.Teachers).ToListAsync();
         return View(courses);
     }
 
     public async Task<IActionResult> Create()
     {
         ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
+        ViewBag.Teachers = await _context.Teachers.ToListAsync();
         return View();
     }
 
@@ -44,11 +45,11 @@ public class CourseController : Controller
         }
 
         var catagory = _context.CourseCategories.Find(coursePost.CourseCatagoryId);
+        var teacher = _context.Teachers.Find(coursePost.TeachersId);
 
-        if (catagory is null)
-        {
-            return BadRequest();
-        }
+        if (teacher is null) return BadRequest();
+        if (catagory is null) return BadRequest();
+
         Course course = new();
         course.Title = coursePost.Title;
         course.Description = coursePost.Description;
@@ -56,6 +57,7 @@ public class CourseController : Controller
         course.CourseCategoryId = coursePost.CourseCatagoryId;
         course.Type= coursePost.Type;
         course.Price= coursePost.Price;
+        course.TeachersId = coursePost.TeachersId;
 
         course.CourseDetail = new CourseDetail
         {
@@ -96,9 +98,11 @@ public class CourseController : Controller
 
     public async Task<IActionResult> Update(int id)
     {
-        Course? Coursedb = await _context.Courses.Include(cd => cd.CourseDetail).FirstOrDefaultAsync(a => a.Id == id);
-        //ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
+        Course? Coursedb = await _context.Courses.Include(cd => cd.CourseDetail).Include(t=> t.Teachers).FirstOrDefaultAsync(a => a.Id == id);
+
         ViewBag.CourseCategory = await _context.CourseCategories.ToListAsync();
+        ViewBag.Teachers = await _context.Teachers.ToListAsync();
+
         if (Coursedb is null) return NotFound();
         var CoursVm = _mapper.Map<CoursePostVM>(Coursedb);
         return View(CoursVm);
@@ -114,6 +118,7 @@ public class CourseController : Controller
         if (!ModelState.IsValid)
         {
             ViewBag.Catagories = await _context.CourseCategories.ToListAsync();
+            ViewBag.Teachers = await _context.Teachers.ToListAsync();
             return View(Course);
         }
         Course? Coursedb = await _context.Courses.AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);

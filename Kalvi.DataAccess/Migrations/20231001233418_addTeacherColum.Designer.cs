@@ -4,6 +4,7 @@ using Kalvi.DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kalvi.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231001233418_addTeacherColum")]
+    partial class addTeacherColum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -161,7 +163,7 @@ namespace Kalvi.DataAccess.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeachersId")
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -178,7 +180,7 @@ namespace Kalvi.DataAccess.Migrations
 
                     b.HasIndex("CourseCategoryId");
 
-                    b.HasIndex("TeachersId");
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Courses");
                 });
@@ -443,15 +445,11 @@ namespace Kalvi.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Kalvi.Core.Entities.Teacher", "Teachers")
+                    b.HasOne("Kalvi.Core.Entities.Teacher", null)
                         .WithMany("Courses")
-                        .HasForeignKey("TeachersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeacherId");
 
                     b.Navigation("CourseCategory");
-
-                    b.Navigation("Teachers");
                 });
 
             modelBuilder.Entity("Kalvi.Core.Entities.CourseDetail", b =>

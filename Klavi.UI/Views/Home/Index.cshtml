@@ -32,11 +32,11 @@
                         Instructor
                     </button>
                     <ul class="dropdown-menu">
-                        @foreach (var instructor in Model.Teachers)
+                        @foreach (var teacher in Model.Teachers)
                         {
                             <li>
                                 <a class="dropdown-item" href="">
-                                    <input name="@instructor.Id" value="@instructor.FullName" type="button" />
+                                    <input name="@teacher.Id" value="@teacher.FullName" type="button" />
                                 </a>
                             </li>
                         }

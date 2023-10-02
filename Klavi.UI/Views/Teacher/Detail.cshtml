@@ -37,31 +37,6 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="classes">
-                        <h5>Classes Handling</h5>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="bg-warning" scope="col">CLASS NAME</th>
-                                    <th class="bg-warning" scope="col">CLASS TYPE</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-active">
-                                    <td>
-                                        <a href="#">Class With Timetable Plugin</a>
-                                    </td>
-                                    <td>online</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">Foreign Language Classes</a>
-                                    </td>
-                                    <td>onsite</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                     <div class="courses">
                         <h5>Courses Handling</h5>
                         <table class="table">
@@ -72,22 +47,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-active">
+                                @foreach (var course in teachers.Courses)
+                                {
+                                    <tr class="table-active">
                                     <td>
-                                        <a href="#">
-                                            Course With Free Curriculums
+                                        <a asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">
+                                            @course.Title
                                         </a>
                                     </td>
-                                    <td>7</td>
+                                    <td>@course.Type</td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#">
-                                            A Glimpse of Virtual
-                                        </a>
-                                    </td>
-                                    <td>8</td>
-                                </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

@@ -8,6 +8,6 @@ public class TeacherProfile:Profile
 {
 	public TeacherProfile()
 	{
-		CreateMap<TeacherPostVm, Teachers>().ReverseMap();
+		CreateMap<TeacherPostVm, Teacher>().ReverseMap();
 	}
 }

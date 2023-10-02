@@ -25,4 +25,5 @@ public class CoursePostVM
     [Required]
     public DateTime Start { get; set; }
     public int CourseCatagoryId { get; set; }
+    public int TeachersId { get; set; }
 }

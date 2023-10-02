@@ -23,6 +23,9 @@ public class Course : IEntity
     public CourseCategory? CourseCategory { get; set; }
     //public int CourseDetailId { get; set; }
     public CourseDetail CourseDetail { get; set; }
-    //public int TeachersId { get; set; }
-    //public Teachers? Teachers { get; set; }
+
+    public int TeachersId { get; set; }
+    [ForeignKey("TeachersId")]
+    public Teacher? Teachers { get; set;}
+
 }
