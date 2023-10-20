@@ -126,7 +126,7 @@ function displayCart(){
             productContainer.innerHTML+=`
                 <tr>
                   <th scope="row"><button class="remove-btn" data-tag="${item.tag}" style="background: none; border: none;"><i class="fa-regular fa-circle-xmark" style="color: #ee1111;"></i></button></th>
-                  <td><img src="./image/${item.tag}" alt=""></td>
+                  <td><img src="~/assets/image/${item.tag}" alt=""></td>
                   <td class="title">${item.name}</td>
                   <td class="price">$${item.price}</td>
                   <td class="quantity">${item.inCart}</td>

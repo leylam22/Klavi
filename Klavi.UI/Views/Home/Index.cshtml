@@ -149,7 +149,7 @@
             {
                 <div class="card">
                     <div class="img">
-                        <a href="./courseDetail.html">
+                        <a asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">
                             <img class="card-img-top" src="@course.ImagePath" alt="Card image cap">
                         </a>
                     </div>
@@ -175,7 +175,7 @@
                             $<span>@course.Price</span>
                         </div>
                         <div class="right">
-                            <a href="#">
+                            <a asp-controller="Course" asp-action="Detail" asp-route-id="@course.Id">
                                 <span>View Details</span> <i class="fa-solid fa-chevron-right"></i>
                             </a>
                         </div>
@@ -272,7 +272,7 @@
                     </div>
                     <div class="right">
                         <h4>
-                            <a href="./singleTeacher.html"> @teacher.FullName</a>
+                            <a asp-controller="Teacher" asp-action="Detail" asp-route-id="@teacher.Id"> @teacher.FullName</a>
                         </h4>
                         <h5>@teacher.Position</h5>
                         <div class="social-links">

@@ -45,12 +45,17 @@
                 </div>
             </div>
 
-            <div class="row mb-4">
+            @*<div class="row mb-4">
                 <label asp-for="BlogInfo" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
                     <input asp-for="BlogInfo" class="form-control" id="horizontal-firstname-input" placeholder="Enter Description ">
                     <span class="text-danger" asp-validation-for="BlogInfo"></span>
                 </div>
+            </div>*@
+
+            <div class="mb-3 row">
+                <label asp-for="BlogInfo" class="col-md-2 col-form-label">Blog Info</label>
+                <textarea asp-for="BlogInfo" id="tiny"></textarea>
             </div>
 
             <div class="row justify-content-end">

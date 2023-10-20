@@ -1,7 +1,10 @@
+using Castle.Core.Smtp;
 using Kalvi.Core.Entities;
 using Kalvi.DataAccess.Contexts;
+using Klavi.UI.Helper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+//using IEmailSender = Klavi.UI.Helper.IEmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -26,6 +29,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(identityOptions => {
 }).AddEntityFrameworkStores<AppDbContext>()
   .AddDefaultTokenProviders();
 
+// Inside ConfigureServices method in Startup.cs
+//builder.Services.AddTransient<IEmailSender, EmailSender>(); // Replace SmtpEmailSender with your implementation
+//builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = "/Auth/Login";

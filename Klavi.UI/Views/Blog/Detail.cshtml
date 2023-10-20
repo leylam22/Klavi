@@ -64,7 +64,8 @@
                     </div>
                     <div class="entry-body">
                         <!-- Burda text editor olacaq -->
-                        @blog.BlogInfo
+                        @Html.Raw(blog.BlogInfo)
+                        @*@blog.BlogInfo*@
                     </div>
                     <div class="entyr-meta-data">
                         <div class="tags">

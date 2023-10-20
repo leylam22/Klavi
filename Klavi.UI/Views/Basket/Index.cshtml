@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- =========Breadcrumb Start========= -->
+<div class="breadcrumb">
+    <div class="hdr">
+        <h1>Cart</h1>
+    </div>
+    <div class="content">
+        <a href="./index.html"> Home</a>
+        <span class="fa fa-arrow-circle-right"></span>
+        <span class="page">Cart</span>
+    </div>
+</div>
+<!-- =========Breadcrumb End========= -->
+<!-- =====Cart Table Start==== -->
+<section class="section">
+    <table class="table caption-top ">
+        <thead>
+            <tr>
+                <th class="bg-warning" scope="col"></th>
+                <th class="bg-warning" scope="col">Image</th>
+                <th class="bg-warning" scope="col">Course</th>
+                <th class="bg-warning" scope="col">Price</th>
+                <th class="bg-warning" scope="col">Quantity</th>
+                <th class="bg-warning" scope="col">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody class="product-container">
+            <div class="emptyCart" style="padding: 35px 45px; background-color: #7c7d7e46; text-align: center; border-radius: 25px; margin-bottom: 50px;">
+                <h1>Basket is empty. We can't wait to see you in our course</h1>
+            </div>
+
+        </tbody>
+    </table>
+</section>
+<!-- =====Cart Table End==== -->
+<!-- ====Cart Total Start==== -->
+<section class="section">
+    <div class="total">
+        <h3>Cart Totals</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">Subtotal</th>
+                    <td class="Subtotal">$0</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="check" type="submit">Proceed to Checkout</button>
+    </div>
+</section>
+<!-- ====Cart Total End==== -->
+

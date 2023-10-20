@@ -17,7 +17,7 @@
 <!-- =========Breadcrumb End========= -->
 <section>
     <div class="container-courses">
-        <div class="left">
+        @*<div class="left">
             <div class="search-filter">
                 <input type="search" name="courses-search-filter" id="courses-search-filter" placeholder="Search Course">
             </div>
@@ -121,9 +121,9 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="right">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+        </div>*@
+        <div class="right" style="margin-bottom:50px;">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach (var course in Model.Courses)
                 {
                     <div class="col">

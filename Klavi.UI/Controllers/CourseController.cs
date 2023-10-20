@@ -25,13 +25,14 @@ namespace Klavi.UI.Controllers
             return View(vm);
         }
 
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> Detail(int id, CourseFilterVM courseFilterVM)
         {
             if (id == 0) return NotFound();
             //var course = await _context.Courses.FindAsync(id);
             var course = await _context.Courses.Include(t => t.Teachers).FirstOrDefaultAsync(c => c.Id == id);
             if (course == null) return NotFound();
             ViewBag.CourseId = course.Id;
+
             HomeVM vm = new()
             {
                 Courses = await _context.Courses.Include(t => t.Teachers).ToListAsync(),
